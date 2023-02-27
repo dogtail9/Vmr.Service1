@@ -11,8 +11,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Vmr.Dependency2\Vmr.Dependency2\Vmr.Dependency2.csproj" />
+  <ItemGroup Condition="'$(ReleaseBuild)' == ''">
+    <PackageReference Include="Vmr.Dependency2" Version="1.2.3-Preview.4.230302.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(ReleaseBuild)' == True">
+    <ProjectReference Include="..\..\Vmr.Dependency2\Vmr.Dependency2\Vmr.Dependency2.csproj" />
   </ItemGroup>
 
 </Project>
